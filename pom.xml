@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+		<artifactId>infrastructure-ws-parent</artifactId>
+		<version>2.5.0.7.0</version>
+	</parent>
+  
+	<groupId>mil.army.drrsa.ws.jpes.dvl</groupId>
+	<artifactId>JPES-DVL-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>DRRS-A JPES DVL Parent</name>
+	<version>2.5.0.7.1-SNAPSHOT</version>
+	<description>DRRS-A JPES DVL Parent Project</description>
+	<!--<scm>
+		<connection>scm:svn:https://repo:8443/svn/DRRS-A/gfmdi/trunk</connection>
+	</scm> -->
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<!-- <tagNameFormat>gfmdi-@{project.version}</tagNameFormat> -->
+				</configuration>
+			</plugin>
+	                <plugin>
+        	            <groupId>org.apache.maven.plugins</groupId>
+                	    <artifactId>maven-surefire-report-plugin</artifactId>
+	                    <version>2.4.3</version>
+	                </plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>archiva</id>
+			<url>https://arch1-va.gjm.isgs.lmco.com/archiva/repository/all</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<modules>
+		<module>DRRS-A-JPES-DVL-message</module>
+		<module>DRRS-A-JPES-DVL-service</module>
+		<module>assembly</module>
+	</modules>
+
+	<properties>
+		<spring.version>3.0.7.RELEASE</spring.version>
+		<spring-data-jpa.version>1.0.3.RELEASE</spring-data-jpa.version>
+	  	<junit.version>4.9</junit.version>
+  		<log4j.version>1.2.16</log4j.version>
+		<hibernate.version>3.6.7.Final</hibernate.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<aspectj.version>1.6.11</aspectj.version>
+		<jpa.version>2.0.0</jpa.version>
+		<camel.version>2.9.2</camel.version>
+		<cxf.version>2.5.4</cxf.version>
+		<cim.version>2.5.0.7.1</cim.version>
+		<cimws.version>2.5.0.7.0</cimws.version>
+        <additionalparam>-Xdoclint:none</additionalparam>
+	</properties>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>mil.army.drrsa.ws.jpes.dvl</groupId>
+				<artifactId>DRRS-A-JPES-DVL-message</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mil.army.drrsa.ws.jpes.dvl</groupId>
+				<artifactId>DRRS-A-JPES-DVL-service</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+			
+			<!-- Common WS dependencies -->
+			<!-- <dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-camel</artifactId>
+				<version>${cimws.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-interface</artifactId>
+				<version>${cimws.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-message</artifactId>
+				<version>${cimws.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-model</artifactId>
+				<version>${cimws.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-monitoring</artifactId>
+				<version>${cimws.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-service</artifactId>
+				<version>${cimws.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-common-testtool</artifactId>
+				<version>${cimws.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmco.gccsa.drrsa.ws</groupId>
+				<artifactId>DRRS-A-webservice</artifactId>
+				<type>war</type>
+				<version>${cimws.version}</version>
+			</dependency> -->
+		</dependencies>
+	</dependencyManagement>
+</project>
